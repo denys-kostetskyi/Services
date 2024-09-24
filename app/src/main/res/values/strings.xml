@@ -5,4 +5,7 @@
     <string name="bound_service">Bound Service</string>
     <string name="foreground_service_channel">Foreground Service Channel</string>
     <string name="tap_to_show_hide_the_view">Tap to show/hide the view</string>
+    <string name="show_view">Show view</string>
+    <string name="hide_view">Hide view</string>
+    <string name="view_from_foreground_service">View from foreground service</string>
 </resources>
