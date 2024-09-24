@@ -8,4 +8,7 @@
     <string name="show_view">Show view</string>
     <string name="hide_view">Hide view</string>
     <string name="view_from_foreground_service">View from foreground service</string>
+    <string name="vibrator_is_not_available">Vibrator is not available</string>
+    <string name="play_sound">Play Sound</string>
+    <string name="vibrate">Vibrate</string>
 </resources>
