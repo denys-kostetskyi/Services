@@ -2,6 +2,7 @@ package com.denyskostetskyi.services
 
 import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
 import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.IBinder
@@ -89,11 +90,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startBackgroundService() {
-
+        val intent = SystemInfoService.newIntent(this, 5000)
+        startService(intent)
     }
 
     private fun stopBackgroundService() {
-
+        val intent = Intent(this, SystemInfoService::class.java)
+        stopService(intent)
     }
 
     private fun bindService() {
