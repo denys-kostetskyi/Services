@@ -2,7 +2,9 @@ package com.denyskostetskyi.services
 
 import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
 import android.content.ServiceConnection
+import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
 import androidx.activity.enableEdgeToEdge
@@ -80,20 +82,26 @@ class MainActivity : AppCompatActivity() {
 
     private fun startForegroundService() {
         val intent = OverlayViewService.newIntent(this)
-        startService(intent)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(intent)
+        } else {
+            startService(intent)
+        }
     }
 
     private fun stopForegroundService() {
-        val intent = OverlayViewService.newIntent(this)
+        val intent = Intent(this, OverlayViewService::class.java)
         stopService(intent)
     }
 
     private fun startBackgroundService() {
-
+        val intent = SystemInfoService.newIntent(this, 5000)
+        startService(intent)
     }
 
     private fun stopBackgroundService() {
-
+        val intent = Intent(this, SystemInfoService::class.java)
+        stopService(intent)
     }
 
     private fun bindService() {
